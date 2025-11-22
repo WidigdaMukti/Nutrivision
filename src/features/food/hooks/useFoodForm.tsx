@@ -69,6 +69,7 @@ export function useFoodForm() {
           state?.kategoriId
         );
         console.log("✅ Data berhasil disimpan:", result);
+        window.dispatchEvent(new Event('refreshMeals'));
         navigate('/dashboard');
       } catch (error) {
         console.error("❌ Error submitting data:", error);

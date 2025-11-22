@@ -17,6 +17,16 @@ export const useMealSection = ({ selectedDate }: MealSectionProps) => {
   const [isProcessingImage, setIsProcessingImage] = useState(false);
   const [selectedKategoriId, setSelectedKategoriId] = useState<number>(4);
 
+  useEffect(() => {
+    const handleClearCache = () => {
+      console.log("🗑️ Clearing meals cache...");
+      clearMakananCache();
+    };
+
+    window.addEventListener('clearMealsCache', handleClearCache);
+    return () => window.removeEventListener('clearMealsCache', handleClearCache);
+  }, []);
+
   const loadKategoriMakanan = async () => {
     try {
       // ✅ CEK CACHE UNTUK KATEGORI (data jarang berubah)
@@ -163,7 +173,7 @@ export const useMealSection = ({ selectedDate }: MealSectionProps) => {
 
     } catch (error) {
       console.error("❌ Error in food detection:", error);
-      toast.error("Tidak dapat mendeteksi gambar");
+      toast.error("Tidak dapat mendeteksi gambar, coba beberapa saat lagi!");
     } finally {
       setIsProcessingImage(false);
     }

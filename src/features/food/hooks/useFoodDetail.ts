@@ -100,6 +100,8 @@ export const useFoodDetail = () => {
 
       if (error) throw error;
 
+      window.dispatchEvent(new CustomEvent('clearMealsCache'));
+
       setShowDeleteModal(false);
       navigate(-1);
     } catch (error) {
