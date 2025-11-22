@@ -10,7 +10,7 @@ import { RegisterLink } from "../components/RegisterLink";
 import { useAuth } from "../AuthContext";
 
 export default function Login() {
-  const { user, isLoading: authLoading } = useAuth();
+  const { isLoading: authLoading } = useAuth();
   const {
     form,
     errors,

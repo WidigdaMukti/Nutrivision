@@ -55,7 +55,6 @@ export const useCircleDays = (selectedDate: Date) => {
       date.setHours(0, 0, 0, 0);
       
       const dateKey = date.toDateString();
-      const todayKey = today.toDateString();
       
       const dateTimestamp = date.getTime();
       const todayTimestamp = today.getTime();

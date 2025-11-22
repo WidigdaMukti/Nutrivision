@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCircleDays } from '../hooks/useCircleDays';
 import { CircleDaysHeader } from '../components/CircleDays/CircleDaysHeader';
 import { CircleDay } from '../components/CircleDays/CircleDay';

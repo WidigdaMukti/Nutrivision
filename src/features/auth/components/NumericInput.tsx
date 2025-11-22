@@ -10,7 +10,6 @@ interface NumericInputProps {
 }
 
 export const NumericInput = ({
-    label,
     placeholder,
     value,
     error,
