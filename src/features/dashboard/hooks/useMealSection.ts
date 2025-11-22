@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation  } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { foodDetection } from '@/api/gemini';
 import { toast } from 'sonner';
@@ -8,6 +8,7 @@ import { dashboardCache } from '.././cache'; // ✅ IMPORT CACHE
 
 export const useMealSection = ({ selectedDate }: MealSectionProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [openSections, setOpenSections] = useState<{ [key: number]: boolean }>({
     1: true, 2: true, 3: true, 4: true
   });
@@ -17,15 +18,15 @@ export const useMealSection = ({ selectedDate }: MealSectionProps) => {
   const [isProcessingImage, setIsProcessingImage] = useState(false);
   const [selectedKategoriId, setSelectedKategoriId] = useState<number>(4);
 
-  useEffect(() => {
-    const handleClearCache = () => {
-      console.log("🗑️ Clearing meals cache...");
+useEffect(() => {
+    if (location.state?.refreshMeals) {
+      console.log("🔄 Refresh triggered from AddFood");
       clearMakananCache();
-    };
-
-    window.addEventListener('clearMealsCache', handleClearCache);
-    return () => window.removeEventListener('clearMealsCache', handleClearCache);
-  }, []);
+      
+      // Clear state
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state]);
 
   const loadKategoriMakanan = async () => {
     try {

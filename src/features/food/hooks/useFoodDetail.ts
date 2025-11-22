@@ -100,10 +100,10 @@ export const useFoodDetail = () => {
 
       if (error) throw error;
 
-      window.dispatchEvent(new CustomEvent('clearMealsCache'));
-
       setShowDeleteModal(false);
-      navigate(-1);
+      navigate('/dashboard', {
+      state: { refreshMeals: true, timestamp: Date.now() }
+    });
     } catch (error) {
       console.error("Error deleting food group:", error);
       alert("Gagal menghapus makanan.");

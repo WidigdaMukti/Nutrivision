@@ -27,27 +27,27 @@ export function useFoodForm() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { validateForm, setFoodRef, foodRefs } = useFoodValidation();
-  const { 
-    addEmptyFood, 
-    updateName, 
-    updateJumlah, 
-    updateSatuan, 
-    deleteFood 
+  const {
+    addEmptyFood,
+    updateName,
+    updateJumlah,
+    updateSatuan,
+    deleteFood
   } = useFoodOperations();
   const { submitToBackend } = useFoodSubmission();
 
   const handleAddEmptyFood = () => addEmptyFood(foods, setFoods);
 
-  const handleUpdateName = (value: string, index: number) => 
+  const handleUpdateName = (value: string, index: number) =>
     updateName(value, index, foods, setFoods, errors, setErrors);
 
-  const handleUpdateJumlah = (value: string, index: number) => 
+  const handleUpdateJumlah = (value: string, index: number) =>
     updateJumlah(value, index, foods, setFoods, errors, setErrors);
 
-  const handleUpdateSatuan = (value: string, index: number) => 
+  const handleUpdateSatuan = (value: string, index: number) =>
     updateSatuan(value, index, foods, setFoods);
 
-  const handleDeleteFood = (index: number) => 
+  const handleDeleteFood = (index: number) =>
     deleteFood(index, foods, setFoods, errors, setErrors);
 
   const handleValidateForm = () => {
@@ -64,13 +64,14 @@ export function useFoodForm() {
 
       try {
         const result = await submitToBackend(
-          foods, 
-          state?.selectedDate, 
+          foods,
+          state?.selectedDate,
           state?.kategoriId
         );
         console.log("✅ Data berhasil disimpan:", result);
-        window.dispatchEvent(new Event('refreshMeals'));
-        navigate('/dashboard');
+        navigate('/dashboard', {
+          state: { refreshMeals: true, timestamp: Date.now() }
+        });
       } catch (error) {
         console.error("❌ Error submitting data:", error);
         toast.error("Gagal menyimpan makanan");
