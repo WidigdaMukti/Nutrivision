@@ -50,11 +50,11 @@ export const TUJUAN_MAPPING: { [key: string]: number } = {
 };
 
 export const AKTIVITAS_MAPPING: { [key: string]: number } = {
-  "Minim olahraga (kantor, jarang olahraga)": 1,
-  "Olahraga ringan (1-3x/minggu)": 2,
-  "Olahraga sedang (3-5x/minggu)": 3,
-  "Olahraga berat (6-7x/minggu)": 4,
-  "Sangat aktif (atlet, pekerja fisik)": 5
+  "Minim olahraga": 1,
+  "Olahraga ringan": 2,
+  "Olahraga sedang": 3,
+  "Olahraga berat": 4,
+  "Sangat aktif": 5
 };
 
 export const ACTIVITY_MULTIPLIERS: { [key: number]: number } = {

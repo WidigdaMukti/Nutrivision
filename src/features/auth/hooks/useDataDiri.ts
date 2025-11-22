@@ -13,7 +13,7 @@ export const useDataDiri = () => {
     umur: "",
     jenisKelamin: "",
     tujuan: "",
-    aktivitas: "Minim olahraga (kantor, jarang olahraga)",
+    aktivitas: "Minim olahraga",
   });
   const [errors, setErrors] = useState<DataDiriErrors>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +45,7 @@ export const useDataDiri = () => {
             ) || "",
             aktivitas: Object.keys(AKTIVITAS_MAPPING).find(
               key => AKTIVITAS_MAPPING[key] === existingProfile.aktivitas_id
-            ) || "Minim olahraga (kantor, jarang olahraga)",
+            ) || "Minim olahraga",
           });
         }
       } else {

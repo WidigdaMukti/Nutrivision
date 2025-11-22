@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation  } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
-import { foodDetection } from '@/api/gemini';
+import { foodDetection } from '@/lib/food-detection-client';
 import { toast } from 'sonner';
 import type { MealSectionProps, MakananByKategori, KategoriMakanan } from '../types';
 import { dashboardCache } from '.././cache'; // ✅ IMPORT CACHE

@@ -12,5 +12,19 @@ export interface FoodDetectionWithNutrition {
 
 export interface GeminiDetectionResult {
   detectedFoods: FoodDetectionWithNutrition[];
-  rawResponse?: any;
+}
+
+export interface SuggestionRequest {
+  tujuan: string;
+  sisaKalori: number; 
+  makananHariIni?: any;
+  selectedDate: string;
+}
+
+export interface MenuSuggestionResult {
+  sarapan: string;
+  makan_siang: string;
+  makan_malam: string;
+  camilan: string;
+  tips: string;
 }

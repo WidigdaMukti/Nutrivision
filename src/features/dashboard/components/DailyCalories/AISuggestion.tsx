@@ -6,7 +6,7 @@ import {
     getSavedMenuSuggestion, 
     saveOrUpdateMenuSuggestion,
     formatJsonToDisplayString
-} from '@/api/geminiSugestion'; // Mengganti '../api/geminiSugestion' menjadi './api/geminiSugestion'
+} from '@/lib/suggestion-client'; // Mengganti '../api/geminiSugestion' menjadi './api/geminiSugestion'
 
 interface AISuggestionProps {
     userData: any; // Harus mengandung userData.user_id

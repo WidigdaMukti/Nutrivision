@@ -31,19 +31,19 @@ export const AktivitasSelect = ({ value, error, isLoading, onChange }: Aktivitas
                 <SelectValue placeholder="Pilih level aktivitas" />
             </SelectTrigger>
             <SelectContent className="bg-white rounded-xl border border-gray-200 shadow-md text-base">
-                <SelectItem value="Minim olahraga (kantor, jarang olahraga)" className="py-3 text-base">
+                <SelectItem value="Minim olahraga" className="py-3 text-base">
                     Minim olahraga (kantor, jarang olahraga)
                 </SelectItem>
-                <SelectItem value="Olahraga ringan (1-3x/minggu)" className="py-3 text-base">
+                <SelectItem value="Olahraga ringan" className="py-3 text-base">
                     Olahraga ringan (1-3x/minggu)
                 </SelectItem>
-                <SelectItem value="Olahraga sedang (3-5x/minggu)" className="py-3 text-base">
+                <SelectItem value="Olahraga sedang" className="py-3 text-base">
                     Olahraga sedang (3-5x/minggu)
                 </SelectItem>
-                <SelectItem value="Olahraga berat (6-7x/minggu)" className="py-3 text-base">
+                <SelectItem value="Olahraga berat" className="py-3 text-base">
                     Olahraga berat (6-7x/minggu)
                 </SelectItem>
-                <SelectItem value="Sangat aktif (atlet, pekerja fisik)" className="py-3 text-base">
+                <SelectItem value="Sangat aktif" className="py-3 text-base">
                     Sangat aktif (atlet, pekerja fisik)
                 </SelectItem>
             </SelectContent>
